@@ -1,0 +1,53 @@
+swagger: "2.0"
+info:
+  description: Registration Service
+  title: 'Registration Service'
+  version: 1.0.0
+host: "localhost:8080"
+tags:
+- name: "register-user"
+schemes:
+- "https"
+- "http"
+paths:
+  /students:
+    get:
+      tags:
+      - "register-user"
+      summary: "Get all students"
+      description: "Get all students"
+      operationId: "getAllStudents"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Student"
+        "400":
+          description: "Invalid status value"
+          
+definitions:
+  Student:
+    type: object
+    properties:
+      first_name:
+        type: string
+      last_name:
+        type: string
+      current_address:
+        type: string
+      current_address_pin:
+        type: integer
+      permanent_address:
+        type: string
+      permanent_address_pin:
+        type: integer
+      date_of_birth:
+        type: string
+      father_name:
+        type: string
+      mother_name:
+        type: string
+      phone_number:
+        type: integer

@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+#mongodb
+spring:
+    application:
+      name: registration-service
+    data:
+        mongodb:
+            host : localhost
+            port : 27017
+            database : chargie
+    
+    config:
+      import: optional:configserver:http://localhost:8888
+    cloud:
+        config:
+            uri : file:////Users/lakshyaveersingh/IdeaProjects/git-localconfig-repo
+            profile: dev
+    profiles:
+      active: dev
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+
+
+logging:
+  pattern:
+    console: ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}
+  level:
+    spring:
+      security: ${SPRING_SECURITY_LOGGING_LEVEL:INFO}
+

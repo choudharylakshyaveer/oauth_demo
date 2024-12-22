@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+
+#mongodb
+spring:
+    application:
+      name: student-service
+    data:
+        mongodb:
+            host : localhost
+            port : 27017
+            database : chargie
+    cloud:
+        config:
+            uri : file:////Users/lakshyaveersingh/IdeaProjects/git-localconfig-repo
+            profile: dev
+logging:
+   pattern:
+     console: ${LOGPATTERN_CONSOLE:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %msg%n}
+   level:
+     spring:
+       security: ${SPRING_SECURITY_LOGGING_LEVEL:INFO}
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+
+
+
